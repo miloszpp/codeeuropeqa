@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>CodeEurope Q&amp;A</h1>
+  <br />
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label for="content">Question</label>
+          <input class="form-control" type="text" name="content" #content />
+        </div>
+        <button type="button" class="btn btn-default" (click)="addQuestion(content.value); content.value=''">Add</button>
+      </form>
+    </div>
+  </div>
+  <div class="panel padding">
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr *ngFor="let question of questions | async">
+          <td>
+            {{ question.content }}
+          </td>
+          <td>
+            {{ question.timestamp | date }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
